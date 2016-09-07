@@ -2,11 +2,18 @@
     package="nfc.activity.monitor">
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:label="@string/app_name">
+
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="A Xposed module to help you monitor what third-party applications are using your NFC for" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="82" />
 
     </application>
 
