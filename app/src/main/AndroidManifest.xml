@@ -13,7 +13,7 @@
             android:value="A Xposed module to help you monitor what third-party applications are using your NFC for" />
         <meta-data
             android:name="xposedminversion"
-            android:value="82" />
+            android:value="53" />
 
     </application>
 
