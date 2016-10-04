@@ -11,7 +11,12 @@ To use this module, you must clone this project using Android Studio, and run it
 You will get an error, since this application doesn't have an activity, but your module should now be listed on the Xposed app. Active it, and reboot your phone.
 
 ## Usage
+### How does it work?
 Everytime an application reads a RFID tag using your NFC, the module will dump the information it requested both on the Xposed logs as well the ADB.
+
+### How is it useful?
+It tells you what an application did or what information is passing from A to B. 
+Let's say you use your phone for payments. Using this module, you will be able to check which information is being requested and passed from your phone when you made a payment.
 
 ## LICENSE
 ```
