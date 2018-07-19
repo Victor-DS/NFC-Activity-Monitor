@@ -1,14 +1,3 @@
-package nfc.activity.monitor;
-
-import android.util.Log;
-
-import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
-import de.robv.android.xposed.IXposedHookLoadPackage;
-import de.robv.android.xposed.XC_MethodHook;
-import de.robv.android.xposed.XposedBridge;
-import de.robv.android.xposed.callbacks.XC_LoadPackage;
-import nfc.activity.monitor.util.Converter;
-
 /*
  * The MIT License
  *
@@ -32,15 +21,29 @@ import nfc.activity.monitor.util.Converter;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+package nfc.activity.monitor;
+
+import android.util.Log;
+
+import de.robv.android.xposed.IXposedHookLoadPackage;
+import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XposedBridge;
+import de.robv.android.xposed.callbacks.XC_LoadPackage;
+import nfc.activity.monitor.util.Converter;
+
+import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
+
 public class Monitor implements IXposedHookLoadPackage {
 
-    private final String NFC_PACKAGE = "com.android.nfc";
-    private final String NFC_TAG_SERVICE = NFC_PACKAGE + ".NfcService.TagService";
+    private static final String NFC_PACKAGE = "com.android.nfc";
+    private static final String NFC_TAG_SERVICE = NFC_PACKAGE + ".NfcService.TagService";
 
     @Override
-    public void handleLoadPackage(XC_LoadPackage.LoadPackageParam loadPackageParam)
-            throws Throwable {
-        if(!loadPackageParam.packageName.equals(NFC_PACKAGE)) return;
+    public void handleLoadPackage(XC_LoadPackage.LoadPackageParam loadPackageParam) {
+        if (!loadPackageParam.packageName.equals(NFC_PACKAGE)) {
+            return;
+        }
 
         //For more information on the "transceive" method, please consult:
         //https://android.googlesource.com/platform/packages/apps/Nfc/+/android-4.2.1_r1.2/src/com/android/nfc/NfcService.java

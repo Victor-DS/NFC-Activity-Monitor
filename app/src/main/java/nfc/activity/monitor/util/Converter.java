@@ -1,5 +1,3 @@
-package nfc.activity.monitor.util;
-
 /*
  * The MIT License
  *
@@ -23,12 +21,15 @@ package nfc.activity.monitor.util;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+package nfc.activity.monitor.util;
+
 public class Converter {
 
     public static String byteToHex(byte[] bytes) {
         final StringBuilder sBuilder = new StringBuilder();
 
-        for(byte b : bytes) {
+        for (byte b : bytes) {
             sBuilder.append(String.format("%02x", b));
         }
 
